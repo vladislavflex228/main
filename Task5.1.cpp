@@ -8,12 +8,17 @@ cout<<"Введите число X = ";
 cin>>X;
 cout<<"Введите число Y = ";
 cin>>Y;
+double max;
+if ( X>Y)
+{
+   max = X;
+}
+else
+{
+    max = Y;
+}
 
-bool IsXGreater = (X>Y);
-
-double max = IsXGreater ? X : Y;
-
-cout<<"Максимальное число равно = "<<max;
+cout<<"Максимальное число равно = "<< max;
 
 
 }
