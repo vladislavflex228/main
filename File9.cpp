@@ -7,7 +7,7 @@ int main()
 {
 double x,y,z,F,a,b;
 
-int N;
+int N,K;
 
 cout<<"Введите z = ";
 cin>>z;
@@ -27,7 +27,9 @@ else
     x = pow(sin(z),2);
 }
 
-switch(N)
+K = N%3;
+
+switch(K)
 {
 case 1:
 {
@@ -47,7 +49,7 @@ case 3:
 default:
 break;
 }
-cout<<F;
+
 
 y = (double)((2*a*F + b*cos(sqrt(fabs(x))))/(pow(x,2)+5));
 
