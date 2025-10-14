@@ -1,47 +1,8 @@
 #include<iostream>
 #include<cmath>
+#include"check.h"
 
 
-long long int checkInt0(long long int &value) {
-    
-
-    while (true) {
-        std::cout << "Введите число: ";
-        if ( (std::cin >> value) && (std::cin.peek() == '\n') && (value > 0) && (value < 1000000)) 
-        {
-            
-            std::cout << "Вы ввели число: " << value << std::endl;
-            return value;
-        } 
-        else 
-        {
-            std::cout << "Нужны только натуральные числа не превосходящие миллиона без пробелов\n";
-            std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        }
-    }
-}
-long int checkInt(long int &value) {
-    
-
-    while (true) {
-        std::cout << "Введите число: ";
-        if ( (std::cin >> value) && (std::cin.peek() == '\n') ) 
-        {
-            
-            std::cout << "Вы ввели число: " << value << std::endl;
-            return value;
-        } 
-        else 
-        {
-            std::cout << "Нужны только целые числа без пробелов\n";
-            std::cin.clear();
-            std::cin.ignore(999, '\n');
-        }
-    }
-
-
-}
 
 
 int main()
@@ -49,7 +10,8 @@ int main()
     std::cout << "Задание 8 \n Выполнил Антонюк Владислав Группа 553501\n";
 
     std::cout<<"Без использования арифметической арифметики и переполнения вычислить a0 -2a1 + ... +2^(n-1)(-1)^(n-1)a(n-1)\n";
-
+for (bool repeat = 1; repeat; repeat = read_repeat())
+{
     std::cout<<"Нам требуется ввести количество одночленов n \n";
 
     long long int n;
@@ -77,7 +39,7 @@ int main()
 
     std::cout<<"Полученная сумма равна: "<<sum<<std::endl;
 
-
+}
 
 
         return 0;

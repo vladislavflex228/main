@@ -1,4 +1,5 @@
 #include<iostream>
+#include"check.h"
 int main()
 {
 
@@ -8,22 +9,17 @@ int main()
     std::cout<<"Bi=i^2, если i - четное, Bi=i^3 -- нечетное\n";
     
 
-
-    double Sum = 0;
-    int i = 1;
-    while (i <= 30) {
-        double x = (i % 2) ? i : (i / 2);
-        double y = (i % 2) ? i * i : i * i * i;
-        Sum += (x - y) * (x - y);
-        i++;
+    for (bool repeat = 1; repeat; repeat = read_repeat())
+    {
+        double Sum = 0;
+        int i = 1;
+        while (i <= 30) {
+            double x = (i % 2) ? i : (i / 2);
+            double y = (i % 2) ? i * i : i * i * i;
+            Sum += (x - y) * (x - y);
+            i++;
+        }
+        std::cout << "Сумма равна " << Sum << std::endl;
+        
     }
-    std::cout << "Сумма равна " << Sum << std::endl;
-    
-    
-
-
-
-
-
-
 }
