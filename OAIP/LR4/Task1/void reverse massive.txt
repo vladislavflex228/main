@@ -1,0 +1,34 @@
+void reverse_massive()
+{
+
+
+    for (bool repeat = 1; repeat; repeat = read_repeat())
+    {
+        long int SIZE;
+        checkInt(SIZE);
+
+        int MyMassive[SIZE];    
+
+        for (int i = 0; i < SIZE; i++)
+        {
+            long int curr;
+            checkInt(curr);
+            
+            MyMassive[i] = curr;
+        }
+
+        for (int i = 0; i < SIZE; i++)
+        {
+            std::cout<<MyMassive[i]<<',';
+        }
+
+        std::reverse(MyMassive,MyMassive + SIZE);
+
+
+        for (int i = 0; i < SIZE; i++)
+        {
+            std::cout<<MyMassive[i]<<',';
+        }
+    }
+
+}
