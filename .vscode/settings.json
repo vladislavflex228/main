@@ -56,6 +56,14 @@
         "text_encoding": "cpp",
         "cinttypes": "cpp",
         "typeinfo": "cpp",
-        "variant": "cpp"
-    }
+        "variant": "cpp",
+        "semaphore": "cpp",
+        "stop_token": "cpp",
+        "thread": "cpp",
+        "set": "cpp",
+        "expected": "cpp",
+        "unordered_set": "cpp"
+    },
+    "cmake.sourceDirectory": "/home/gep/Proga/OAIP/LR3/MyProject",
+    "C_Cpp.errorSquiggles": "enabled"
 }
