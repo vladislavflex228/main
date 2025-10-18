@@ -8,14 +8,14 @@ find_package(GTest CONFIG REQUIRED)
 include(GoogleTest) # <-- Эта строка включает необходимые функции для gtest_discover_tests
 
 # Добавляем ваш тестируемый класс как библиотеку
-add_library(funcTask2 funcTask2.cpp funcTask2.h)
+add_library(funcTask3 funcTask3.cpp funcTask3.h)
 
 # Создаем исполняемый файл для тестов
-add_executable(testTask2 testTask2.cpp)
+add_executable(testTask3 testTask3.cpp)
 
 # Связываем исполняемый файл тестов с вашей библиотекой и Google Test
-target_link_libraries(testTask2 PRIVATE funcTask2 GTest::gtest_main GTest::gtest)
+target_link_libraries(testTask3 PRIVATE funcTask3 GTest::gtest_main GTest::gtest)
 
 # Включаем каталог с тестами в CTest (опционально, но полезно для автоматизации)
 include(CTest)
-gtest_discover_tests(testTask2)
+gtest_discover_tests(testTask3)
