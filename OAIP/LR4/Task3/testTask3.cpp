@@ -1,7 +1,7 @@
 #include "gtest/gtest.h"
 #include "funcTask3.h" 
 
-TEST(MatrixPowerComparisonTest1,Matrix3x3Power3)
+TEST(MatrixPowerComparisonTest,Matrix3x3Power3)
 {
     int size = 3;
     int power = 3;
@@ -37,7 +37,7 @@ TEST(MatrixPowerComparisonTest1,Matrix3x3Power3)
     }
 }
 
-TEST(MatrixPowerComparisonTest2,Matrix3x3Power4)
+TEST(MatrixPowerComparisonTest,Matrix3x3Power4)
 {
     int size = 3;
     int power = 4;
@@ -71,7 +71,7 @@ TEST(MatrixPowerComparisonTest2,Matrix3x3Power4)
     }
 }
 
-TEST(MatrixPowerComparisonTest3,Matrix3x3Power4)
+TEST(MatrixPowerComparisonTest,Matrix4x4Power3)
 {
     int size = 4;
     int power = 3;
