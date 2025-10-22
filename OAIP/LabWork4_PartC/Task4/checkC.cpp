@@ -38,6 +38,46 @@ int get_natural_number_c(int *value_ptr) {
     }
 }
 
+int repeat_c(int *value_ptr)
+{
+    char buffer[100]; // Буфер для чтения строки ввода
+    long temp_value;  // Используем long для strtol, чтобы избежать переполнения при чтении
+    char *endptr;     // Указатель на первый непреобразованный символ
+
+    while (true) { // Бесконечный цикл
+        printf("Хотите повторить программу? (ДА = 1; НЕТ = 0): ");
+
+        // Читаем строку из stdin
+        if (fgets(buffer, sizeof(buffer), stdin) == nullptr) {
+         
+            printf("Ошибка чтения ввода,повторите попытку\n");
+
+            continue; 
+        }
+
+ 
+        buffer[strcspn(buffer, "\n")] = '\0';
+
+        if (strlen(buffer) == '\0') {
+            printf("Зачем вы просто нажали enter,введите 1 или 0\n");
+            continue; 
+        }
+
+        temp_value = strtol(buffer, &endptr, 10);
+
+        if (*endptr == '\0' && (temp_value == 0 || temp_value == 1)) {
+            *value_ptr = (int)temp_value;
+            return *value_ptr;            
+        } else {
+           
+            printf("Нажмите либо 0,либо 1\n");
+            
+        }
+    }
+
+
+}
+
 
 /*
 int read_int_safe(const char* prompt, int* value) {

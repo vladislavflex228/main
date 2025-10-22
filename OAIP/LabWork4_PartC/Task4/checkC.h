@@ -9,6 +9,7 @@
 #include<cstdbool>
 
 int get_natural_number_c(int *value_ptr);
+int repeat_c(int *value_ptr);
 
 
 #endif
