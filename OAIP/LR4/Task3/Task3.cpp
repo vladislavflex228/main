@@ -20,6 +20,8 @@ for (int i = 0; i < size; i++)
     matrix[i] = new int[size];
 }
 
+
+
 std::cout<<"_____________________________________\n";
 std::cout<<"Введем массив(матрицу)руками\n";
 for (int i = 0; i < size; i++)

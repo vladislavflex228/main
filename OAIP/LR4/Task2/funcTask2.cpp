@@ -3,7 +3,7 @@
 
 
 
-int CountNegativeNumbers(int *massive,int str,int col)
+int CountNegativeNumbers(int *massive,const int str,const int col)
 
 {
 int count = 0;
