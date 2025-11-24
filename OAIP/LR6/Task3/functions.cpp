@@ -3,11 +3,21 @@
 const int MAX_LEN = 100;
 
 wchar_t* readString(int &len) {
-    wchar_t* arr = new wchar_t[MAX_LEN + 1];
-    len = 0;
-    std::wcin.getline(arr, MAX_LEN + 1);
-    while (arr[len] != L'\0') len++;
-    return arr;
+    wchar_t buffer[105]; 
+    int i = 0;
+    wchar_t ch;
+    
+    while (i < 100 && (ch = std::wcin.get()) != L'\n' && ch != WEOF) {
+        buffer[i++] = ch;
+    }
+    buffer[i] = L'\0';
+    len = i;
+
+    wchar_t* res = new wchar_t[len + 1];
+    for (int k = 0; k <= len; k++) {
+        res[k] = buffer[k];
+    }
+    return res;
 }
 
 wchar_t* compressString(const wchar_t* str, int len, int &newLen) {
@@ -56,4 +66,37 @@ bool compareArrays(const wchar_t* a, const wchar_t* b, int len) {
         if (a[i] != b[i]) return false;
     }
     return true;
+}
+
+bool read_repeat () {
+
+    bool temp;
+    std::wcout << L"Wanna restart a program? (YES = 1; NO = 0): ";
+
+    while (!(std::wcin >> temp) || std::wcin.peek() != L'\n') {
+
+        std::wcin.clear ();
+        while (std::wcin.get () != L'\n') {}
+
+        std::wcout << L"Error. Enter again: ";
+    }
+
+    return temp;
+
+}
+
+int checkInt0(int &value) {
+    while (true) {
+        std::wcout << L"Введите число: ";
+        if ( (std::wcin >> value) && (std::wcin.peek() == L'\n') && (value >= 0) && (value < 81)) 
+        {
+            return value;
+        } 
+        else 
+        {
+            std::wcout << L"Нужны только неотрицательные числа не превосходящие 80 без пробелов\n";
+            std::wcin.clear();
+            std::wcin.ignore(std::numeric_limits<std::streamsize>::max(), L'\n');
+        }
+    }
 }

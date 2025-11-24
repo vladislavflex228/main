@@ -1,13 +1,14 @@
 #include"functions.h"
 
 int main() {
-    std::locale::global(std::locale("")); // включаем поддержку UTF-8/локали
-    std::wcin.imbue(std::locale());
-    std::wcout.imbue(std::locale());
+    std::locale utf8_locale("ru_RU.UTF-8");
+    std::locale::global(utf8_locale);; // включаем поддержку UTF-8/локали
+    std::wcin.imbue(utf8_locale);
+    std::wcout.imbue(utf8_locale);
 
-    std::cout<<"Задание номер 3 Вариант 2,Выполнил Антонюк Владислав\n";
+    std::wcout<<L"Задание номер 3 Вариант 2,Выполнил Антонюк Владислав\n";
 
-    std::cout<<"Если в строке встречена последовательность одинаковых символов, заменить их кодом 255, за которым следует код этого символа и количество одинаковых символов \n";
+    std::wcout<<L"Если в строке встречена последовательность одинаковых символов, заменить их кодом 255, за которым следует код этого символа и количество одинаковых символов \n";
     
     for (bool repeat = 1; repeat; repeat = read_repeat())
     {
@@ -15,6 +16,8 @@ int main() {
         std::wcout << L"Введите количество строк: ";
         
         checkInt0(n);
+
+        while (std::wcin.get() != L'\n'); 
 
         wchar_t** arr = new wchar_t*[n];
         int* lengths = new int[n];
