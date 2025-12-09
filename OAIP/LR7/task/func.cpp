@@ -1,20 +1,25 @@
 #include"func.h"
 
 namespace Task1 {
+    // O(N)
     bool isValidBinary(const std::string& s) {
         if (s.empty()) return false;
         
+        // O(N)
         if (s.find(' ') != std::string::npos) return false;
         
+        // O(N)
         for (char c : s) {
             if (c != '0' && c != '1') return false;
         }
         return true;
     }
 
+    // O(N)
     std::string convertAdditionalToInverse(std::string binNum) {
         if (binNum[0] == '0') return binNum; 
         
+        // O(N)
         for (int i = binNum.length() - 1; i >= 0; i--) {
             if (binNum[i] == '1') {
                 binNum[i] = '0';
@@ -32,13 +37,16 @@ namespace Task1 {
         std::string inputStr;
         while (true) {
             std::cout << "Введите число (доп. код): ";
+            // O(N)
             std::getline(std::cin, inputStr);
             
+            // O(N)
             if (isValidBinary(inputStr)) break;
             
             std::cout << "Ошибка! Вводите только '0' и '1' без пробелов.\n";
         }
 
+        // O(N)
         std::string result = convertAdditionalToInverse(inputStr);
         std::cout << "Результат (обр. код): " << result << std::endl;
         if (inputStr[0] == '0') std::cout << "(Число положительное)\n";
@@ -48,24 +56,31 @@ namespace Task1 {
 
 namespace Task2 {
     
+    // O(N)
     bool isValidBinary(const std::string& s) {
         if (s.empty()) return false;
+        // O(N)
         if (s.find(' ') != std::string::npos) return false;
+        // O(N)
         for (char c : s) {
             if (c != '0' && c != '1') return false;
         }
         return true;
     }
 
+    // O(N)
     std::string invertBits(std::string s) {
         std::string res = s;
+        // O(N)
         for (size_t i = 1; i < res.length(); i++) {
             res[i] = (res[i] == '0' ? '1' : '0');
         }
         return res;
     }
 
+    // O(N)
     std::string addOne(std::string s) {
+        // O(N)
         for (int i = s.length() - 1; i >= 0; i--) {
             if (s[i] == '0') { s[i] = '1'; break; }
             else { s[i] = '0'; }
@@ -73,22 +88,29 @@ namespace Task2 {
         return s;
     }
 
+    // O(N)
     std::string directToAdditional(std::string s) {
         if (s[0] == '0') return s; 
+        // O(N)
         return addOne(invertBits(s));
     }
 
+    // O(N)
     std::string additionalToDirect(std::string s) {
         if (s[0] == '0') return s; 
         std::string temp = s;
+        // O(N)
         for (int i = temp.length() - 1; i >= 0; i--) {
             if (temp[i] == '1') { temp[i] = '0'; break; }
             else { temp[i] = '1'; }
         }
+        // O(N)
         return invertBits(temp);
     }
 
+    // O(N)
     std::string addBinary(std::string a, std::string b) {
+        // O(N)
         size_t maxLen = std::max(a.length(), b.length());
         std::string padA(maxLen - a.length(), a[0]);
         std::string padB(maxLen - b.length(), b[0]);
@@ -97,6 +119,7 @@ namespace Task2 {
 
         std::string res = "";
         int carry = 0;
+        // O(N)
         for (int i = a.length() - 1; i >= 0; i--) {
             int bitA = a[i] - '0';
             int bitB = b[i] - '0';
@@ -104,6 +127,7 @@ namespace Task2 {
             res += std::to_string(sum % 2);
             carry = sum / 2;
         }
+        // O(N)
         std::reverse(res.begin(), res.end());
         return res; 
     }
@@ -114,22 +138,30 @@ namespace Task2 {
 
         while (true) {
             std::cout << "Число 1: ";
+            // O(N)
             std::getline(std::cin, s1);
+            // O(N)
             if (isValidBinary(s1)) break;
             std::cout << "Ошибка! Только '0' и '1' без пробелов.\n";
         }
 
         while (true) {
             std::cout << "Число 2: ";
+            // O(N)
             std::getline(std::cin, s2);
+            // O(N)
             if (isValidBinary(s2)) break;
             std::cout << "Ошибка! Только '0' и '1' без пробелов.\n";
         }
 
+        // O(N)
         std::string add1 = directToAdditional(s1);
+        // O(N)
         std::string add2 = directToAdditional(s2);
         
+        // O(N)
         std::string sumAdd = addBinary(add1, add2);
+        // O(N)
         std::string resDirect = additionalToDirect(sumAdd);
 
         std::cout << "Сумма (Доп): " << sumAdd << std::endl;
@@ -151,17 +183,20 @@ namespace Task3 {
         return '?';
     }
     
+    // O(N)
     std::string removeLeadingZeros(std::string s) {
+        // O(N)
         size_t first_nonzero = s.find_first_not_of('0');
         if (std::string::npos == first_nonzero) return "0";
+        // O(N)
         return s.substr(first_nonzero);
     }
     
-
+    // O(N)
     bool isValidStringForBase(const std::string& s, int base) {
         if (s.empty()) return false;
         
-        
+        // O(N)
         if (s.find(' ') != std::string::npos) return false;
 
         size_t start = 0;
@@ -173,6 +208,7 @@ namespace Task3 {
             return false;
         }
 
+        // O(N)
         for (size_t i = start; i < s.length(); i++) {
             int val = charToInt(s[i]);
             if (val == -1 || val >= base) return false;
@@ -180,17 +216,19 @@ namespace Task3 {
         return true;
     }
 
-
+    // O(N)
     int inputStrictBase() {
         std::string baseStr;
         while (true) {
             std::cout << "Введите основание (2-36): ";
+            // O(N)
             std::getline(std::cin, baseStr);
             
             if (baseStr.empty()) {
                 std::cout << "Ошибка! Пустой ввод.\n";
                 continue;
             }
+            // O(N)
             if (baseStr.find(' ') != std::string::npos) {
                 std::cout << "Ошибка! Пробелы запрещены.\n";
                 continue;
@@ -202,6 +240,7 @@ namespace Task3 {
 
             bool isNumber = true;
             long long tempBase = 0;
+            // O(N)
             for (char c : baseStr) {
                 if (c < '0' || c > '9') {
                     isNumber = false;
@@ -224,12 +263,15 @@ namespace Task3 {
         }
     }
 
+    // O(N)
     std::string inputStrictNumber(int base, const std::string& prompt) {
         std::string num;
         while (true) {
             std::cout << prompt;
+            // O(N)
             std::getline(std::cin, num);
             
+            // O(N)
             if (isValidStringForBase(num, base)) {
                 return num;
             }
@@ -241,15 +283,18 @@ namespace Task3 {
         }
     }
     
+    // O(N)
     bool isAbsGreater(std::string a, std::string b) {
         if (a.length() > b.length()) return true;
         if (a.length() < b.length()) return false;
         return a > b;
     }
     
+    // O(N)
     std::string coreAdd(std::string n1, std::string n2, int base) {
         std::string res = "";
         int i = n1.length() - 1, j = n2.length() - 1, carry = 0;
+        // O(N)
         while (i >= 0 || j >= 0 || carry > 0) {
             int v1 = (i >= 0) ? charToInt(n1[i]) : 0;
             int v2 = (j >= 0) ? charToInt(n2[j]) : 0;
@@ -258,13 +303,16 @@ namespace Task3 {
             res += intToChar(sum % base);
             i--; j--;
         }
+        // O(N)
         std::reverse(res.begin(), res.end());
         return res;
     }
     
+    // O(N)
     std::string coreSub(std::string n1, std::string n2, int base) {
         std::string res = "";
         int i = n1.length() - 1, j = n2.length() - 1, borrow = 0;
+        // O(N)
         while (i >= 0) {
             int v1 = charToInt(n1[i]);
             int v2 = (j >= 0) ? charToInt(n2[j]) : 0;
@@ -273,50 +321,68 @@ namespace Task3 {
             res += intToChar(diff);
             i--; j--;
         }
+        // O(N)
         std::reverse(res.begin(), res.end());
+        // O(N)
         return removeLeadingZeros(res);
     }
     
     std::string addInBase(std::string n1, std::string n2, int base);
     std::string subInBase(std::string n1, std::string n2, int base);
 
+    // O(N)
     std::string addInBase(std::string n1, std::string n2, int base) {
         if (n1[0] == '+') n1 = n1.substr(1);
         if (n2[0] == '+') n2 = n2.substr(1);
 
         bool neg1 = (n1[0] == '-'), neg2 = (n2[0] == '-');
+        // O(N)
         std::string abs1 = neg1 ? n1.substr(1) : n1;
+        // O(N)
         std::string abs2 = neg2 ? n2.substr(1) : n2;
         
         if (neg1 == neg2) {
+            // O(N)
             std::string res = coreAdd(abs1, abs2, base);
             return neg1 ? "-" + res : res;
         } else {
+            // O(N)
             if (isAbsGreater(abs1, abs2)) {
+                // O(N)
                 std::string res = coreSub(abs1, abs2, base);
                 return (res == "0") ? "0" : (neg1 ? "-" + res : res);
             } else {
+                // O(N)
                 std::string res = coreSub(abs2, abs1, base);
                 return (res == "0") ? "0" : (neg2 ? "-" + res : res);
             }
         }
     }
     
+    // O(N)
     std::string subInBase(std::string n1, std::string n2, int base) {
+        // O(N)
         if (n2[0] == '-') return addInBase(n1, n2.substr(1), base);
+        // O(N)
         else if (n2[0] == '+') return addInBase(n1, "-" + n2.substr(1), base);
+        // O(N)
         else return addInBase(n1, "-" + n2, base);
     }
 
     void run() {
         std::cout << "\n--- ЗАДАНИЕ 3 ---\n";
     
+        // O(N)
         int base = inputStrictBase();
         
+        // O(N)
         std::string n1 = inputStrictNumber(base, "Число 1: ");
+        // O(N)
         std::string n2 = inputStrictNumber(base, "Число 2: ");
         
+        // O(N)
         std::cout << "Сумма:    " << addInBase(n1, n2, base) << std::endl;
+        // O(N)
         std::cout << "Разность: " << subInBase(n1, n2, base) << std::endl;
     }
 }
@@ -325,11 +391,11 @@ namespace Task4 {
     int bitNegate(int x) { return ~x + 1; }
     int bitSub(int a, int b) { return a + bitNegate(b); }
     
-    
+    // O(N)
     bool isValidDecimal(const std::string& s) {
         if (s.empty()) return false;
         
-        
+        // O(N)
         if (s.find(' ') != std::string::npos) return false;
 
         size_t start = 0;
@@ -340,6 +406,7 @@ namespace Task4 {
 
         if (s[start] == '0' && s.length() > start + 1) return false;
 
+        // O(N)
         for (size_t i = start; i < s.length(); i++) {
             if (s[i] < '0' || s[i] > '9') return false;
         }
@@ -358,10 +425,12 @@ namespace Task4 {
         return rem;
     }
     
+    // O(N)
     bool isDivisible(std::string numStr, int divisor) {
         int rem = 0;
         int minusCharZero = bitNegate('0');
         size_t i = (numStr[0] == '-') ? 1 : 0;
+        // O(N)
         for (; i < numStr.length(); i++) {
             int digit = numStr[i] + minusCharZero;
             int currentVal = (rem << 3) + (rem << 1) + digit;
@@ -376,8 +445,10 @@ namespace Task4 {
         
         while (true) {
             std::cout << "Введите число: ";
+            // O(N)
             std::getline(std::cin, num);
             
+            // O(N)
             if (isValidDecimal(num)) break;
             
             std::cout << "Ошибка! Введите целое число (без пробелов, без ведущих нулей 007).\n";
@@ -385,6 +456,7 @@ namespace Task4 {
 
         int primes[] = {5, 47, 89};
         for (int p : primes) {
+            // O(N)
             std::cout << "На " << p << ": " << (isDivisible(num, p) ? "ДА" : "НЕТ") << std::endl;
         }
     }
@@ -423,15 +495,18 @@ namespace Task5 {
     void waitEnter() {
         std::cout << "\n[Нажмите Enter, чтобы продолжить...]";
         std::string dummy;
+        // O(N)
         std::getline(std::cin, dummy);
     }
 
-    
+    // O(N)
     bool parseStrictInt(const std::string& s, int& outVal, int min, int max) {
         if (s.empty()) return false;
+        // O(N)
         if (s.find(' ') != std::string::npos) return false;
         if (s.length() > 1 && s[0] == '0') return false;
         long long temp = 0;
+        // O(N)
         for (char c : s) {
             if (c < '0' || c > '9') return false;
             temp = temp * 10 + (c - '0');
@@ -442,13 +517,15 @@ namespace Task5 {
         return true;
     }
 
-    
+    // O(N)
     int inputInt(const std::string& prompt, int min, int max) {
         std::string s;
         int val;
         while (true) {
             std::cout << prompt;
+            // O(N)
             std::getline(std::cin, s);
+            // O(N)
             if (parseStrictInt(s, val, min, max)) return val;
             std::cout << " >> Ошибка! Введите число от " << min << " до " << max << " (без пробелов).\n";
         }
@@ -481,9 +558,11 @@ namespace Task5 {
         
         printBarrelArt();
 
+        // O(N)
         int barrel = inputInt("\nВ какую бочку подсыпать яд? (1-240): ", 1, 240);
         
         std::cout << "\nВы аккуратно открываете бочку №" << barrel << ", выливаете яд и скрываетесь в тени...\n";
+        // O(N)
         waitEnter();
 
         std::cout << "Патриций обнаружил следы взлома!\n";
@@ -507,6 +586,7 @@ namespace Task5 {
         }
         if(!day1Death) std::cout << "Все рабы пережили первую ночь.\n";
         
+        // O(N)
         waitEnter();
 
     
@@ -524,6 +604,7 @@ namespace Task5 {
         }
         if(!day2Death) std::cout << "Больше никто не умер.\n";
         
+        // O(N)
         waitEnter();
 
     
@@ -533,6 +614,7 @@ namespace Task5 {
         std::cout << "Патриций смотрит на трупы и сверяется с папирусом.\n";
         std::cout << "Патриций: 'Математика не врет! Яд в бочке №" << barrel << "!'\n";
         std::cout << "Вас схватила стража. Game Over.\n";
+        // O(N)
         waitEnter();
     }
 
@@ -554,12 +636,14 @@ namespace Task5 {
             std::cout << "  1 - Умер в ПЕРВЫЙ день\n";
             std::cout << "  2 - Умер во ВТОРОЙ день\n";
             
+            // O(N)
             states[i] = inputInt("Ваш вердикт (0-2): ", 0, 2);
             
             if(states[i] > 0) std::cout << " >> Записано: Раб №" << i+1 << " мертв.\n";
             else std::cout << " >> Записано: Раб №" << i+1 << " жив.\n";
         }
 
+        // O(N)
         waitEnter();
         
         clearScreen();
@@ -578,6 +662,7 @@ namespace Task5 {
             std::cout << "\nВЫВОД: Яд находится в бочке №" << result << "!\n";
             std::cout << "Патриций спасен! Вы получаете мешок золота.\n";
         }
+        // O(N)
         waitEnter();
     }
 
@@ -593,6 +678,7 @@ namespace Task5 {
             std::cout << "0. Вернуться в главное меню\n";
             std::cout << "==========================================\n";
             
+            // O(N)
             int choice = inputInt("Ваш выбор: ", 0, 2);
             
             if (choice == 0) break;
