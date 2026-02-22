@@ -1,0 +1,15 @@
+/home/gep/Proga/Sharp/LR4/Task/bin/Debug/net10.0/Task
+/home/gep/Proga/Sharp/LR4/Task/bin/Debug/net10.0/Task.deps.json
+/home/gep/Proga/Sharp/LR4/Task/bin/Debug/net10.0/Task.runtimeconfig.json
+/home/gep/Proga/Sharp/LR4/Task/bin/Debug/net10.0/Task.dll
+/home/gep/Proga/Sharp/LR4/Task/bin/Debug/net10.0/Task.pdb
+/home/gep/Proga/Sharp/LR4/Task/obj/Debug/net10.0/Task.GeneratedMSBuildEditorConfig.editorconfig
+/home/gep/Proga/Sharp/LR4/Task/obj/Debug/net10.0/Task.AssemblyInfoInputs.cache
+/home/gep/Proga/Sharp/LR4/Task/obj/Debug/net10.0/Task.AssemblyInfo.cs
+/home/gep/Proga/Sharp/LR4/Task/obj/Debug/net10.0/Task.csproj.CoreCompileInputs.cache
+/home/gep/Proga/Sharp/LR4/Task/obj/Debug/net10.0/Task.sourcelink.json
+/home/gep/Proga/Sharp/LR4/Task/obj/Debug/net10.0/Task.dll
+/home/gep/Proga/Sharp/LR4/Task/obj/Debug/net10.0/refint/Task.dll
+/home/gep/Proga/Sharp/LR4/Task/obj/Debug/net10.0/Task.pdb
+/home/gep/Proga/Sharp/LR4/Task/obj/Debug/net10.0/Task.genruntimeconfig.cache
+/home/gep/Proga/Sharp/LR4/Task/obj/Debug/net10.0/ref/Task.dll
